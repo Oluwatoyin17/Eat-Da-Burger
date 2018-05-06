@@ -29,8 +29,8 @@ function objToSql(ob) {
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = "'" + value + "'";
       }
-      // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-      // e.g. {sleepy: true} => ["sleepy=true"]
+      // e.g. {burger_name: 'Lana Del Grey'} => ["burger_name='Lana Del Grey'"]
+      // e.g. {devoured: true} => ["devoured=true"]
       arr.push(key + "=" + value);
     }
   }
@@ -39,7 +39,7 @@ function objToSql(ob) {
   return arr.toString();
 }
 
-// Object for all our SQL statement functions. we have a cb because after we select all the data, we are going to be running whatever function is in cat.js using the data
+// Object for all our SQL statement functions. we have a cb because after we select all the data, we are going to be running whatever function is in burger.js using the data
 var orm = {
   all: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
@@ -70,7 +70,7 @@ var orm = {
       cb(result);
     });
   },
-  // An example of objColVals would be {name: panther, sleepy: true}
+  // An example of objColVals would be {burger_name: panther, devoured: true}
   update: function(table, objColVals, condition, cb) {
     // This is updating burgers to set the values where condition is the id
     var queryString = "UPDATE " + table;
@@ -105,5 +105,5 @@ var orm = {
   }
 };
 
-// Export the orm object for the model (cat.js).
+// Export the orm object for the model (burger.js).
 module.exports = orm;

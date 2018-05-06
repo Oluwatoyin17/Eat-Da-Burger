@@ -5,11 +5,9 @@
 <ul>
   {{!#each is handlebars' way of running a for loop}}
   {{#each burgers}}
-  {{!if sleepy is true}}
-  {{!Unless renders the block if the expression returns a falsy value, so if sleepy is false i.e the cats are not sleepy, handlebars will render the cats inside of partials folder}}
+
     {{#unless devoured}}
-    {{!It's called a partial(handlebar uses partials to reuse templates) > is pointing to cats inside of partials folder }}
-    {{!Why is sleep=true?? Is it Because in the cat-block.hbs [if sleep then "Sleep time"] so, if the cats are not sleepy, then "Sleep time"? }}
+   
       {{> burgers/burger-block devour=true}}
     {{/unless}}
   {{/each}}
@@ -20,14 +18,14 @@
 <ul>
   {{!#each is handlebars' way of running a for loop}}
   {{#each burgers}}
-  {{!#if if sleepy is true}}
+
     {{#if devoured}}
-    {{!> is used for partials, and is pointing to the cat-block inside cats inside the partials folder}}
+    {{!> is used for partials, and is pointing to the burgers-block inside burgers inside the partials folder}}
       {{> burgers/burger-block devour=false}}
     {{/if}}
   {{/each}}
 </ul>
-{{!Form to add a cat}}
+{{!Form to add a burger}}
 <h2>Add a Burger</h2>
 <form class="create-form">
 
