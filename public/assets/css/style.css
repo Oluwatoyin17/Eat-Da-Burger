@@ -1,0 +1,38 @@
+body{
+  background-color: teal;
+  margin: auto;
+    width: 60%;
+    border: 3px solid rgb(255, 105, 205);
+    padding: 10px;
+}
+li {
+  padding: 5px;
+  margin: 5px;
+  background: #faebd7;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.create-update-form {
+  padding: 5px;
+  margin: 5px;
+  background: aqua;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+button{
+width: 100px;
+height: 50px;
+background-color:green;
+}
+.change-devour, .delete-burger{
+  margin-left: 20px;
+  width: 80px;
+  height: 30px;
+  background-color:grey;
+
+}

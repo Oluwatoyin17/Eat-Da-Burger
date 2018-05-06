@@ -1,0 +1,47 @@
+<h1>Burgers!</h1>
+
+<h2>Burgers Created</h2>
+
+<ul>
+  {{!#each is handlebars' way of running a for loop}}
+  {{#each burgers}}
+  {{!if sleepy is true}}
+  {{!Unless renders the block if the expression returns a falsy value, so if sleepy is false i.e the cats are not sleepy, handlebars will render the cats inside of partials folder}}
+    {{#unless devoured}}
+    {{!It's called a partial(handlebar uses partials to reuse templates) > is pointing to cats inside of partials folder }}
+    {{!Why is sleep=true?? Is it Because in the cat-block.hbs [if sleep then "Sleep time"] so, if the cats are not sleepy, then "Sleep time"? }}
+      {{> burgers/burger-block devour=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Burgers Devoured!</h2>
+
+<ul>
+  {{!#each is handlebars' way of running a for loop}}
+  {{#each burgers}}
+  {{!#if if sleepy is true}}
+    {{#if devoured}}
+    {{!> is used for partials, and is pointing to the cat-block inside cats inside the partials folder}}
+      {{> burgers/burger-block devour=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+{{!Form to add a cat}}
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="bu">Burger Name:</label>
+    <input type="text" id="bu" name="burger_name">
+  </div>
+
+
+  <div class="form-group">
+    <label for="devoured">Devoured?</label><br>
+    <input type="radio" name="devoured" value="1" > Devoured!<br>
+    <input type="radio" name="devoured" value="0"checked> Create
+  </div>
+
+  <button type="submit">Add Burger</button>
+</form>
