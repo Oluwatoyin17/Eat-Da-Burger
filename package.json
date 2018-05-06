@@ -1,5 +1,5 @@
 {
-  "name": "mvc_design",
+  "name": "mysql-sequelize-heroku",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
